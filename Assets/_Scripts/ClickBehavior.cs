@@ -13,12 +13,20 @@ public class ClickBehavior : MonoBehaviour
 
     private void Start()
     {
-        TimeSpan ts = DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("Last", ""));
-        float timeDifference = ((float)ts.TotalSeconds);
-        float backgroundPoints = timeDifference * pointsPerSecond;
-        score += backgroundPoints;
+        score = PlayerPrefs.GetFloat("score", 0);
+        try
+        {
+            TimeSpan ts = DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("Last", ""));
+            float timeDifference = ((float)ts.TotalSeconds);
+            float backgroundPoints = timeDifference * pointsPerSecond;
+            score += backgroundPoints;
+        }
+        catch (FormatException) { }
 
+        
         StartCoroutine(EndlessTimer());
+
+        
     }
 
     public void ClickOnPLane()
@@ -48,6 +56,7 @@ public class ClickBehavior : MonoBehaviour
 
     public void Save()
     {
+        PlayerPrefs.SetFloat("score", score);
         PlayerPrefs.SetString("Last", DateTime.Now.ToString());
     }
 }
