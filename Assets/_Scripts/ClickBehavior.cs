@@ -8,7 +8,7 @@ public class ClickBehavior : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
 
     public static float score;
-    public static float pointsPerSecond = 0.1f;
+    public static float pointsPerSecond = 0.5f;
     public static int hitPower = 1;
 
     private void Start()
@@ -40,7 +40,6 @@ public class ClickBehavior : MonoBehaviour
         {
             score += pointsPerSecond;
             yield return new WaitForSeconds(1);
-            Debug.Log(score);
         }
     }
 
