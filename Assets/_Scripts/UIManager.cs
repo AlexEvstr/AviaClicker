@@ -13,13 +13,28 @@ public class UIManager : MonoBehaviour
         _settingsPanel.SetActive(true);
     }
 
+    public void CloseSettings()
+    {
+        _settingsPanel.SetActive(false);
+    }
+
     public void OpenUpgrades()
     {
         _upgradesPanel.SetActive(true);
     }
 
+    public void CloseUpgrades()
+    {
+        _upgradesPanel.SetActive(false);
+    }
+
     public void OpenSkins()
     {
         _skinsPanel.SetActive(true);
+    }
+
+    public void CloseSkins()
+    {
+        _skinsPanel.SetActive(false);
     }
 }
