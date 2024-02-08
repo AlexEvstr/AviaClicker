@@ -14,6 +14,12 @@ public class ClickBehavior : MonoBehaviour
 
     private void Start()
     {
+        LoadData();
+        StartCoroutine(EndlessTimer());
+    }
+
+    private void LoadData()
+    {
         score = PlayerPrefs.GetFloat("score", 0);
         pointsPerSecond = PlayerPrefs.GetFloat("perSec", 0.5f);
         hitPower = PlayerPrefs.GetInt("hitPower", 1);
@@ -25,11 +31,6 @@ public class ClickBehavior : MonoBehaviour
             score += backgroundPoints;
         }
         catch (FormatException) { }
-
-        
-        StartCoroutine(EndlessTimer());
-
-        
     }
 
     public void ClickOnPLane()

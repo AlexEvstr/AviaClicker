@@ -11,8 +11,8 @@ public class UpgradeBehavior : MonoBehaviour
     [SerializeField] private TMP_Text _priseHitText;
     [SerializeField] private TMP_Text _priseAutoText;
 
-    private int[] _priseHit = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000 };
-    private int[] _priseAuto = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000 };
+    private int[] _priseHit = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 20000000, 50000000, 100000000 };
+    private int[] _priseAuto = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 20000000, 50000000, 100000000 };
 
     private int priseHitIndex;
     private int priseAutoIndex;
