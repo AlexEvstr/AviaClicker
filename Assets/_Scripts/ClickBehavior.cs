@@ -36,6 +36,9 @@ public class ClickBehavior : MonoBehaviour
     public void ClickOnPLane()
     {
         score += hitPower;
+        /////DELETE!!!!!////////
+        score += 100000;
+        ///////////////
     }
 
     private IEnumerator EndlessTimer()
