@@ -14,15 +14,22 @@ public class UpgradeBehavior : MonoBehaviour
     private int[] _priseHit = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000 };
     private int[] _priseAuto = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000 };
 
-    private int priseHitIndex = 0;
-    private int priseAutoIndex = 0;
-
+    private int priseHitIndex;
+    private int priseAutoIndex;
     private int _hitLevel;
     private int _autoLevel;
 
     private void Start()
     {
-        
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        priseHitIndex = PlayerPrefs.GetInt("priseHitIndex", 0);
+        priseAutoIndex = PlayerPrefs.GetInt("priseAutoIndex", 0);
+        _hitLevel = PlayerPrefs.GetInt("_hitLevel", 1);
+        _autoLevel = PlayerPrefs.GetInt("_autoLevel", 1);
     }
 
     private void Update()
@@ -58,5 +65,18 @@ public class UpgradeBehavior : MonoBehaviour
         }
         
         Debug.Log($"Auto Click: {ClickBehavior.pointsPerSecond}");
+    }
+
+    private void OnDisable()
+    {
+        SaveData();
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt("priseHitIndex", priseHitIndex);
+        PlayerPrefs.SetInt("priseAutoIndex", priseAutoIndex);
+        PlayerPrefs.SetInt("_hitLevel", _hitLevel);
+        PlayerPrefs.SetInt("_autoLevel", _autoLevel);
     }
 }
