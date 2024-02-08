@@ -3347,6 +3347,7 @@ GameObject:
   - component: {fileID: 1497881078}
   - component: {fileID: 1497881077}
   - component: {fileID: 1497881076}
+  - component: {fileID: 1497881079}
   m_Layer: 5
   m_Name: Plane
   m_TagString: Untagged
@@ -3397,11 +3398,11 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -3450,7 +3451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b693a73dbcccb43048d17bc97435c9d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f8af26f11bcd4bd19edfa58fae81749, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3468,6 +3469,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497881074}
   m_CullTransparentMesh: 1
+--- !u!114 &1497881079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497881074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13490c8efb084d9980080764fc92bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1521886140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,10 +3827,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfffe6ffbf65457f8325ea4b8adf39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitBtn: {fileID: 2085521638}
+  _hitImage: {fileID: 2085521639}
+  _AutoBtn: {fileID: 181182542}
+  _AutoImage: {fileID: 181182543}
   _hitText: {fileID: 1316813556}
   _autoText: {fileID: 2115863649}
-  _priseHitText: {fileID: 2116139720}
-  _priseAutoText: {fileID: 206035990}
+  _priceHitText: {fileID: 2116139720}
+  _priceAutoText: {fileID: 206035990}
 --- !u!114 &1627027864
 MonoBehaviour:
   m_ObjectHideFlags: 0

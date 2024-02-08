@@ -50,7 +50,7 @@ public class ClickBehavior : MonoBehaviour
     private void Update()
     {
         _scoreText.text = ((int)score).ToString();
-        _pointsPerSecText.text = $"{pointsPerSecond} +  per second";
+        _pointsPerSecText.text = $"{pointsPerSecond} per second";
         
     }
 

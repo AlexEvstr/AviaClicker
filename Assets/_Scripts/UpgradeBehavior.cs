@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UpgradeBehavior : MonoBehaviour
 {
+    [SerializeField] private Button _hitBtn;
+    [SerializeField] private Image _hitImage;
+    [SerializeField] private Button _AutoBtn;
+    [SerializeField] private Image _AutoImage;
+
     [SerializeField] private TMP_Text _hitText;
     [SerializeField] private TMP_Text _autoText;
 
-    [SerializeField] private TMP_Text _priseHitText;
-    [SerializeField] private TMP_Text _priseAutoText;
+    [SerializeField] private TMP_Text _priceHitText;
+    [SerializeField] private TMP_Text _priceAutoText;
 
-    private int[] _priseHit = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 20000000, 50000000, 100000000 };
-    private int[] _priseAuto = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 20000000, 50000000, 100000000 };
+    private int[] _priceHit = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 20000000, 50000000, 100000000 };
+    private int[] _priceAuto = { 10, 50, 100, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 20000000, 50000000, 100000000 };
 
-    private int priseHitIndex;
-    private int priseAutoIndex;
+    private int priceHitIndex;
+    private int priceAutoIndex;
     private int _hitLevel;
     private int _autoLevel;
 
@@ -26,29 +30,70 @@ public class UpgradeBehavior : MonoBehaviour
 
     private void LoadData()
     {
-        priseHitIndex = PlayerPrefs.GetInt("priseHitIndex", 0);
-        priseAutoIndex = PlayerPrefs.GetInt("priseAutoIndex", 0);
+        priceHitIndex = PlayerPrefs.GetInt("priseHitIndex", 0);
+        priceAutoIndex = PlayerPrefs.GetInt("priseAutoIndex", 0);
         _hitLevel = PlayerPrefs.GetInt("_hitLevel", 1);
         _autoLevel = PlayerPrefs.GetInt("_autoLevel", 1);
     }
 
     private void Update()
     {
+        CheckHitBtn();
+        CheckAutoBtn();
+        ShowLvlInfo();
+        ShowPriceInfo();
+    }
+
+    private void CheckHitBtn()
+    {
+        if (_priceHit[priceHitIndex] > ClickBehavior.score)
+        {
+            _hitBtn.interactable = false;
+            _hitImage.color = new Color(0, 0, 0);
+        }
+
+        else if (_priceHit[priceHitIndex] <= ClickBehavior.score)
+        {
+            _hitBtn.interactable = true;
+            _hitImage.color = new Color(1, 1, 1);
+        }
+    }
+
+    private void CheckAutoBtn()
+    {
+        if (_priceAuto[priceAutoIndex] > ClickBehavior.score)
+        {
+            _AutoBtn.interactable = false;
+            _AutoImage.color = new Color(0, 0, 0);
+        }
+
+        else if (_priceAuto[priceAutoIndex] <= ClickBehavior.score)
+        {
+            _AutoBtn.interactable = true;
+            _AutoImage.color = new Color(1, 1, 1);
+        }
+    }
+
+    private void ShowLvlInfo()
+    {
         _hitText.text = $"lvl: {_hitLevel} \n \n +1";
         _autoText.text = $"lvl: {_autoLevel} \n \n +0.5";
+    }
 
-        _priseHitText.text = $"Price: {_priseHit[priseHitIndex]}";
-        _priseAutoText.text = $"Price: {_priseAuto[priseAutoIndex]}";
+    private void ShowPriceInfo()
+    {
+        _priceHitText.text = $"Price: {_priceHit[priceHitIndex]}";
+        _priceAutoText.text = $"Price: {_priceAuto[priceAutoIndex]}";
     }
 
     public void ClickUpgradeHit()
     {
-        if (ClickBehavior.score >= _priseHit[priseHitIndex])
+        if (ClickBehavior.score >= _priceHit[priceHitIndex])
         {
             ClickBehavior.hitPower++;
             _hitLevel++;
-            ClickBehavior.score -= _priseHit[priseHitIndex];
-            priseHitIndex++;
+            ClickBehavior.score -= _priceHit[priceHitIndex];
+            priceHitIndex++;
         }
         
         Debug.Log($"Hit Power: {ClickBehavior.hitPower}");
@@ -56,12 +101,12 @@ public class UpgradeBehavior : MonoBehaviour
 
     public void ClickUpgradeAuto()
     {
-        if (ClickBehavior.score >= _priseAuto[priseAutoIndex])
+        if (ClickBehavior.score >= _priceAuto[priceAutoIndex])
         {
             ClickBehavior.pointsPerSecond += 0.5f;
             _autoLevel++;
-            ClickBehavior.score -= _priseAuto[priseAutoIndex];
-            priseAutoIndex++;
+            ClickBehavior.score -= _priceAuto[priceAutoIndex];
+            priceAutoIndex++;
         }
         
         Debug.Log($"Auto Click: {ClickBehavior.pointsPerSecond}");
@@ -74,8 +119,8 @@ public class UpgradeBehavior : MonoBehaviour
 
     private void SaveData()
     {
-        PlayerPrefs.SetInt("priseHitIndex", priseHitIndex);
-        PlayerPrefs.SetInt("priseAutoIndex", priseAutoIndex);
+        PlayerPrefs.SetInt("priseHitIndex", priceHitIndex);
+        PlayerPrefs.SetInt("priseAutoIndex", priceAutoIndex);
         PlayerPrefs.SetInt("_hitLevel", _hitLevel);
         PlayerPrefs.SetInt("_autoLevel", _autoLevel);
     }
