@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PlaneRotation : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    private float _rotationIndex = 0.1f;
+    private float _rotationIndex = 0.05f;
 
     private void Start()
     {
