@@ -7320,6 +7320,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13490c8efb084d9980080764fc92bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _planes:
+  - {fileID: 21300000, guid: 1f8af26f11bcd4bd19edfa58fae81749, type: 3}
+  - {fileID: 21300000, guid: 8d204862b414242d2909a4de45907cf8, type: 3}
+  - {fileID: 21300000, guid: 8ca96a4d0e05d4fa3bb35192966cd84b, type: 3}
+  - {fileID: 21300000, guid: 9429e3a81fdf5419b817a033f1761aa6, type: 3}
+  - {fileID: 21300000, guid: d20a6b54b115f4d3bbed8f9186ef1e32, type: 3}
+  - {fileID: 21300000, guid: 009681ff3d8374c459e0ad9523a009b1, type: 3}
 --- !u!1 &1499792605
 GameObject:
   m_ObjectHideFlags: 0
