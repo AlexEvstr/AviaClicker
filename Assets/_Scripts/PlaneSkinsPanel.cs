@@ -14,6 +14,8 @@ public class PlaneSkinsPanel : MonoBehaviour
     [SerializeField] private GameObject _priceText;
     [SerializeField] private GameObject _unlockedText;
 
+    
+
     private void Start()
     {
         LoadPlanes();
@@ -63,6 +65,11 @@ public class PlaneSkinsPanel : MonoBehaviour
 
     public void ClickClack()
     {
+        if(_priceText.activeInHierarchy)
+        {
+            ClickBehavior.score -= _price;
+        }
+
         transform.parent.gameObject.GetComponent<Image>().color = new Color(0.5647027f, 0.8867924f, 0.5675792f);
         _flag.transform.SetParent(gameObject.transform);
         _mainPlane.GetComponent<Image>().sprite = _newPlane;
@@ -109,12 +116,12 @@ public class PlaneSkinsPanel : MonoBehaviour
 
     private void ChechScore()
     {
-        if (_price < ClickBehavior.score)
+        if (_price <= ClickBehavior.score || !_priceText.activeInHierarchy)
         {
             gameObject.GetComponent<Button>().interactable = true;
             gameObject.GetComponent<Image>().color = new Color(1, 1, 1);
         }
-        else if (_price >= ClickBehavior.score)
+        else if (_price > ClickBehavior.score)
         {
             gameObject.GetComponent<Button>().interactable = false;
             gameObject.GetComponent<Image>().color = new Color(0, 0, 0);
