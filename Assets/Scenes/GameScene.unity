@@ -3661,6 +3661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 0
+  _planeIndex: 0
   _flag: {fileID: 1128208633}
   _mainPlane: {fileID: 1497881074}
   _newPlane: {fileID: 21300000, guid: 1f8af26f11bcd4bd19edfa58fae81749, type: 3}
@@ -4642,6 +4643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 10000
+  _planeIndex: 1
   _flag: {fileID: 1128208633}
   _mainPlane: {fileID: 1497881074}
   _newPlane: {fileID: 21300000, guid: 8d204862b414242d2909a4de45907cf8, type: 3}
@@ -5431,6 +5433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 50000
+  _planeIndex: 2
   _flag: {fileID: 1128208633}
   _mainPlane: {fileID: 1497881074}
   _newPlane: {fileID: 21300000, guid: 8ca96a4d0e05d4fa3bb35192966cd84b, type: 3}
@@ -5831,6 +5834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 500000
+  _planeIndex: 4
   _flag: {fileID: 1128208633}
   _mainPlane: {fileID: 1497881074}
   _newPlane: {fileID: 21300000, guid: d20a6b54b115f4d3bbed8f9186ef1e32, type: 3}
@@ -6387,6 +6391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 100000
+  _planeIndex: 3
   _flag: {fileID: 1128208633}
   _mainPlane: {fileID: 1497881074}
   _newPlane: {fileID: 21300000, guid: 9429e3a81fdf5419b817a033f1761aa6, type: 3}
@@ -7079,6 +7084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 1000000
+  _planeIndex: 5
   _flag: {fileID: 1128208633}
   _mainPlane: {fileID: 1497881074}
   _newPlane: {fileID: 21300000, guid: 009681ff3d8374c459e0ad9523a009b1, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class PlaneRotation : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
@@ -34,5 +35,10 @@ public class PlaneRotation : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerUp(PointerEventData eventData)
     {
         transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    private void OnDisable()
+    {
+        //gameObject.GetComponent<Image>().sprite
     }
 }

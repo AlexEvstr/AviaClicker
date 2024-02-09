@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlaneSkinsPanel : MonoBehaviour
 {
     [SerializeField] private int _price;
+
+    [SerializeField] private int _planeIndex;
     [SerializeField] private GameObject _flag;
 
     [SerializeField] private GameObject _mainPlane;
@@ -14,21 +14,51 @@ public class PlaneSkinsPanel : MonoBehaviour
     [SerializeField] private GameObject _priceText;
     [SerializeField] private GameObject _unlockedText;
 
-    private ArrayList names;
-
-    private string _isLock;
-
     private void Start()
     {
-        _isLock = PlayerPrefs.GetString("isLock", "");
-        Debug.Log(_isLock);
-        //if (_isLock.Contains(gameObject.transform.parent.transform.parent.name))
-        //{
-        //    gameObject.GetComponent<Button>().interactable = true;
-        //    gameObject.GetComponent<Image>().color = new Color(1, 1, 1);
-        //    _priceText.SetActive(false);
-        //    _unlockedText.SetActive(true);
-        //}
+        LoadPlanes();
+    }
+
+    private void LoadPlanes()
+    {
+        int index0 = PlayerPrefs.GetInt("player_0", -1);
+        if (index0 == _planeIndex)
+        {
+            MakeBtnUnlicked();
+        }
+        int index1 = PlayerPrefs.GetInt("player_1", -1);
+        if (index1 == _planeIndex)
+        {
+            MakeBtnUnlicked();
+        }
+        int index2 = PlayerPrefs.GetInt("player_2", -1);
+        if (index2 == _planeIndex)
+        {
+            MakeBtnUnlicked();
+        }
+        int index3 = PlayerPrefs.GetInt("player_3", -1);
+        if (index3 == _planeIndex)
+        {
+            MakeBtnUnlicked();
+        }
+        int index4 = PlayerPrefs.GetInt("player_4", -1);
+        if (index4 == _planeIndex)
+        {
+            MakeBtnUnlicked();
+        }
+        int index5 = PlayerPrefs.GetInt("player_5", -1);
+        if (index5 == _planeIndex)
+        {
+            MakeBtnUnlicked();
+        }
+    }
+
+    private void MakeBtnUnlicked()
+    {
+        gameObject.GetComponent<Button>().interactable = true;
+        gameObject.GetComponent<Image>().color = new Color(1, 1, 1);
+        _priceText.SetActive(false);
+        _unlockedText.SetActive(true);
     }
 
     public void ClickClack()
@@ -39,8 +69,36 @@ public class PlaneSkinsPanel : MonoBehaviour
 
         _priceText.SetActive(false);
         _unlockedText.SetActive(true);
-        //names.Add(gameObject.transform.parent.transform.parent);
-        PlayerPrefs.SetString("isLock", names.ToString());
+
+        SavePlaneIndex();
+    }
+
+    private void SavePlaneIndex()
+    {
+        if (gameObject.transform.parent.transform.parent.name.Contains("0"))
+        {
+            PlayerPrefs.SetInt("player_0", _planeIndex);
+        }
+        else if (gameObject.transform.parent.transform.parent.name.Contains("1"))
+        {
+            PlayerPrefs.SetInt("player_1", _planeIndex);
+        }
+        else if (gameObject.transform.parent.transform.parent.name.Contains("2"))
+        {
+            PlayerPrefs.SetInt("player_2", _planeIndex);
+        }
+        else if (gameObject.transform.parent.transform.parent.name.Contains("3"))
+        {
+            PlayerPrefs.SetInt("player_3", _planeIndex);
+        }
+        else if (gameObject.transform.parent.transform.parent.name.Contains("4"))
+        {
+            PlayerPrefs.SetInt("player_4", _planeIndex);
+        }
+        else if (gameObject.transform.parent.transform.parent.name.Contains("5"))
+        {
+            PlayerPrefs.SetInt("player_5", _planeIndex);
+        }
     }
 
     private void Update()
