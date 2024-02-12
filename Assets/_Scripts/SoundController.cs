@@ -27,7 +27,6 @@ public class SoundController : MonoBehaviour
         _on.SetActive(false);
         _off.SetActive(true);
         AudioListener.volume = 0;
-        Debug.Log(AudioListener.volume);
         PlayerPrefs.SetFloat("music", AudioListener.volume);
     }
 

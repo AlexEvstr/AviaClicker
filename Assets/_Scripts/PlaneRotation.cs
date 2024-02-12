@@ -76,7 +76,6 @@ public class PlaneRotation : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     private void SaveSprite()
     {
-        Debug.Log(gameObject.GetComponent<Image>().sprite.name);
         if (gameObject.GetComponent<Image>().sprite.name.Contains("0"))
         {
             PlayerPrefs.SetInt("planeSprite", 0);
