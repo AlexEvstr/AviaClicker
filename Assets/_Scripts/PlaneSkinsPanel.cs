@@ -116,7 +116,7 @@ public class PlaneSkinsPanel : MonoBehaviour
 
     private void ChechScore()
     {
-        if (_price <= ClickBehavior.score && !_priceText.activeInHierarchy)
+        if (_price <= ClickBehavior.score || !_priceText.activeInHierarchy)
         {
             gameObject.GetComponent<Button>().interactable = true;
             gameObject.GetComponent<Image>().color = new Color(1, 1, 1);

@@ -99,7 +99,7 @@ public class BackgroundSkinsPanel : MonoBehaviour
 
     private void CheckPrice()
     {
-        if (_price <= ClickBehavior.score && !_priceText.activeInHierarchy)
+        if (_price <= ClickBehavior.score || !_priceText.activeInHierarchy)
         {
             gameObject.transform.GetChild(0).GetComponent<Button>().interactable = true;
             gameObject.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1);
