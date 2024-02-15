@@ -84,14 +84,14 @@ public class UpgradeBehavior : MonoBehaviour
 
     private void ShowLvlInfo()
     {
-        _hitText.text = $"Level {_hitLevel}: +1";
-        _autoText.text = $"Level {_autoLevel}: +0.5";
+        _hitText.text = $"Level {_hitLevel}:    +1";
+        _autoText.text = $"Level {_autoLevel}:   +0.5";
     }
 
     private void ShowPriceInfo()
     {
-        _priceHitText.text = $"Price:  {_priceHit[priceHitIndex]}";
-        _priceAutoText.text = $"Price:  {_priceAuto[priceAutoIndex]}";
+        _priceHitText.text = $"Price:    {_priceHit[priceHitIndex]}";
+        _priceAutoText.text = $"Price:    {_priceAuto[priceAutoIndex]}";
     }
 
     public void ClickUpgradeHit()
