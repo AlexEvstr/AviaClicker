@@ -49,13 +49,17 @@ public class UpgradeBehavior : MonoBehaviour
         if (_priceHit[priceHitIndex] > ClickBehavior.score)
         {
             _hitBtn.interactable = false;
-            _hitImage.color = new Color(0, 0, 0);
+            _hitImage.color = new Color(0.5f, 0.5f, 0.5f);
+            _hitText.GetComponent<TMP_Text>().color = new Color(0.5f, 0.5f, 0.5f);
+            _priceHitText.GetComponent<TMP_Text>().color = new Color(0.5f, 0.5f, 0.5f);
         }
 
         else if (_priceHit[priceHitIndex] <= ClickBehavior.score)
         {
             _hitBtn.interactable = true;
             _hitImage.color = new Color(1, 1, 1);
+            _hitText.GetComponent<TMP_Text>().color = new Color(1, 1, 1);
+            _priceHitText.GetComponent<TMP_Text>().color = new Color(1, 1, 1);
         }
     }
 
@@ -64,13 +68,17 @@ public class UpgradeBehavior : MonoBehaviour
         if (_priceAuto[priceAutoIndex] > ClickBehavior.score)
         {
             _AutoBtn.interactable = false;
-            _AutoImage.color = new Color(0, 0, 0);
+            _AutoImage.color = new Color(0.5f, 0.5f, 0.5f);
+            _autoText.GetComponent<TMP_Text>().color = new Color(0.5f, 0.5f, 0.5f);
+            _priceAutoText.GetComponent<TMP_Text>().color = new Color(0.5f, 0.5f, 0.5f);
         }
 
         else if (_priceAuto[priceAutoIndex] <= ClickBehavior.score)
         {
             _AutoBtn.interactable = true;
             _AutoImage.color = new Color(1, 1, 1);
+            _autoText.GetComponent<TMP_Text>().color = new Color(1,1,1);
+            _priceAutoText.GetComponent<TMP_Text>().color = new Color(1, 1, 1);
         }
     }
 
@@ -95,8 +103,6 @@ public class UpgradeBehavior : MonoBehaviour
             ClickBehavior.score -= _priceHit[priceHitIndex];
             priceHitIndex++;
         }
-        
-        Debug.Log($"Hit Power: {ClickBehavior.hitPower}");
     }
 
     public void ClickUpgradeAuto()
@@ -108,8 +114,6 @@ public class UpgradeBehavior : MonoBehaviour
             ClickBehavior.score -= _priceAuto[priceAutoIndex];
             priceAutoIndex++;
         }
-        
-        Debug.Log($"Auto Click: {ClickBehavior.pointsPerSecond}");
     }
 
     private void OnDisable()
